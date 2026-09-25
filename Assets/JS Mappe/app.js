@@ -32,10 +32,10 @@ const byer = [
     {
         navn: "København",
         hints: [
-            "Danmarks hovedstad.",
+            "Byen ligger på Sjælland.",
             "Tivoli ligger her.",
             "Den Lille Havfrue findes her.",
-            "Byen ligger på Sjælland.",
+            "Danmarks hovedstad.",
             "Byen starter med bogstavet K."
         ]
     }
@@ -56,7 +56,7 @@ function tjekSvar() {
     if (brugerSvar.toLowerCase() === by.navn.toLowerCase()) {
 
         document.getElementById("resultat").textContent =
-            `✅ Rigtigt! Du gættede ${by.navn} med ${antalHints} hint(s).`;
+            `Rigtigt! Du gættede ${by.navn} med ${antalHints} hint(s).`;
 
     } else {
 
@@ -70,12 +70,12 @@ function tjekSvar() {
             antalHints++;
 
             document.getElementById("resultat").textContent =
-                `❌ Forkert! Du har nu brugt ${antalHints} hint(s).`;
+                ` Forkert! Du har nu brugt ${antalHints} hints.`;
 
         } else {
 
             document.getElementById("resultat").textContent =
-                `😢 Du har brugt alle hints. Byen var ${by.navn}.`;
+                ` Du har brugt alle hints. Byen var ${by.navn}.`;
         }
     }
 }
