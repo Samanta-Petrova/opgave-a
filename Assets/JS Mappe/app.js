@@ -1,6 +1,7 @@
 const byer = [
     {
         navn: "Aalborg",
+        svar: ["Aalborg","aalborg", "Ålborg", "ålborg"],
         hints: [
             "Byen ligger i Nordjylland.",
             "Limfjorden løber gennem byen.",
@@ -11,6 +12,7 @@ const byer = [
     },
     {
         navn: "Aarhus",
+        svar: ["Aarhus", "aarhus", "Århus", "århus"],
         hints: [
             "Byen ligger i Østjylland.",
             "Danmarks næststørste by.",
@@ -21,6 +23,7 @@ const byer = [
     },
     {
         navn: "Odense",
+        svar: ["Odense", "odense"],
         hints: [
             "Byen ligger på Fyn.",
             "H.C. Andersen blev født her.",
@@ -31,6 +34,7 @@ const byer = [
     },
     {
         navn: "København",
+        svar: ["København", "københavn"],
         hints: [
             "Byen ligger på Sjælland.",
             "Tivoli ligger her.",
@@ -42,18 +46,27 @@ const byer = [
 ];
 
 // Vælger en tilfældig by
-const by = byer[Math.floor(Math.random() * byer.length)];
+ let by = byer[Math.floor(Math.random() * byer.length)];
 
 let hintIndex = 0;
 let antalHints = 0;
-
+function nytSpil() {
+let by = byer[Math.floor(Math.random() * byer.length)];
+ 
+hintIndex = 0;
+antalHints = 0;
+ 
+document.getElementById("hint").textContent = by.hints[0];
+document.getElementById("resultat").textContent = "";
+document.getElementById("gæt").value = "";
+}
 // Vis første hint
 document.getElementById("hint").textContent = by.hints[hintIndex];
 
 function tjekSvar() {
     let brugerSvar = document.getElementById("gæt").value.trim();
 
-    if (brugerSvar.toLowerCase() === by.navn.toLowerCase()) {
+    if (by.svar.includes(brugerSvar.toLowerCase())) {
 
         document.getElementById("resultat").textContent =
             `Rigtigt! Du gættede ${by.navn} med ${antalHints} hint(s).`;
@@ -79,3 +92,4 @@ function tjekSvar() {
         }
     }
 }
+nytSpil();
