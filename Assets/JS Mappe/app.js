@@ -46,12 +46,12 @@ const byer = [
 ];
 
 // Vælger en tilfældig by
- let by = byer[Math.floor(Math.random() * byer.length)];
+ by = byer[Math.floor(Math.random() * byer.length)];
 
 let hintIndex = 0;
 let antalHints = 0;
 function nytSpil() {
-let by = byer[Math.floor(Math.random() * byer.length)];
+by = byer[Math.floor(Math.random() * byer.length)];
  
 hintIndex = 0;
 antalHints = 0;
